@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import Icon from './Icon';
 
-require('../icons/money.svg'); //这个跟vue中一样,不能直接用import导入
-require("../icons/Statistics.svg")
-require("../icons/tag.svg")
 
 const NavWrapper = styled.nav`
   line-height: 24px;
@@ -30,24 +28,9 @@ export default function Nav() {
     return (
         <NavWrapper>
             <ul>
-                <li>
-                    <svg fill={'red'} className={'icon'}>
-                        <use xlinkHref={'#tag'}/>
-                    </svg>
-                    <Link to="/tags">标签</Link>
-                </li>
-                <li>
-                    <svg fill={"red"} className={"icon"}>
-                        <use xlinkHref={"#money"}/>
-                    </svg>
-                    <Link to="/money">记账</Link>
-                </li>
-                <li>
-                    <svg fill={"red"} className={"icon"}>
-                        <use xlinkHref={"#Statistics"}/>
-                    </svg>
-                    <Link to="/statistics">统计</Link>
-                </li>
+                <Icon name={"tag"} value={"标签"}/>
+                <Icon name={"money"} value={"记账"}/>
+                <Icon name={"Statistics"} value={"统计"}/>
             </ul>
         </NavWrapper>
     );
