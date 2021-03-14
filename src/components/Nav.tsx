@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import x from "../icons/money.svg"
 
-const  NavWapper = styled.nav`
+require('../icons/money.svg'); //这个跟vue中一样,不能直接用import导入
+require("../icons/Statistics.svg")
+require("../icons/tag.svg")
+
+const NavWrapper = styled.nav`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0,0,0,0.25);
   >ul {
@@ -11,25 +14,41 @@ const  NavWapper = styled.nav`
     >li{
       width: 33.3%;
       text-align: center;
-      padding: 16px;
+      display: flex;
+      padding: 4px 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .icon{
+        width: 24px;
+        height: 24px;
+      }
     }
   }
-`
-export default function Nav(){
+`;
+export default function Nav() {
     return (
-        <NavWapper>
+        <NavWrapper>
             <ul>
                 <li>
-                    <img src={x} alt=""/>
+                    <svg fill={'red'} className={'icon'}>
+                        <use xlinkHref={'#tag'}/>
+                    </svg>
                     <Link to="/tags">标签</Link>
                 </li>
                 <li>
+                    <svg fill={"red"} className={"icon"}>
+                        <use xlinkHref={"#money"}/>
+                    </svg>
                     <Link to="/money">记账</Link>
                 </li>
                 <li>
+                    <svg fill={"red"} className={"icon"}>
+                        <use xlinkHref={"#Statistics"}/>
+                    </svg>
                     <Link to="/statistics">统计</Link>
                 </li>
             </ul>
-        </NavWapper>
-    )
+        </NavWrapper>
+    );
 }
