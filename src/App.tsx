@@ -9,11 +9,18 @@ import Tags from './views/Tags';
 import Statistics from './views/Statistics';
 import Money from './views/Money';
 import NoMatch from './views/NoMatch';
+import styled from 'styled-components';
+
+const AppWrapper = styled.div`
+  color: #333;
+`
 
 function App() {
     return (
-        <Router>
-            <Switch>
+        <AppWrapper>
+
+            <Router>
+                <Switch>
                         <Route path="/tags">
                             <Tags />
                         </Route>
@@ -27,8 +34,9 @@ function App() {
                         <Route path={"*"}>
                             <NoMatch/>
                         </Route>
-                    </Switch>
-        </Router>
+                </Switch>
+            </Router>
+        </AppWrapper>
     );
 }
 
