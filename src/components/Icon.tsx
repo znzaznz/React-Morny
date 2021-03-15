@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 require('../icons/money.svg'); //这个跟vue中一样,不能直接用import导入
 require("../icons/Statistics.svg")
 require("../icons/tag.svg")
