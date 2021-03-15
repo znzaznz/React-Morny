@@ -363,7 +363,7 @@ module.exports = function (webpackEnv) {
                 // Disable require.ensure as it's not a standard language feature.
                 {parser: {requireEnsure: false}},
                 {
-                    // "oneOf" will traverse all following loaders until one will
+                    // "" will traverse all following loaders until one will
                     // match the requirements. When no loader matches it will fall
                     // back to the "file" loader at the end of the loader list.
                     oneOf: [
@@ -372,7 +372,11 @@ module.exports = function (webpackEnv) {
                             use: [
                                 {loader: 'svg-sprite-loader', options: {}},
                                 {
-                                    loader: 'svgo-loader', options: {}
+                                    loader: 'svgo-loader', options: {
+                                        plugins:[
+                                            { removeAttrs:{attrs:"fill"}}
+                                        ]
+                                    }
                                 }
                             ]
                         },

@@ -5,28 +5,15 @@ import {
     Route,
     Redirect
 } from 'react-router-dom';
-import Nav from './components/Nav';
-import Tags from './components/Tags';
-import Statistics from './components/Statistics';
-import Money from './components/Money';
-import NoMatch from './components/NoMatch';
-import styled from 'styled-components';
+import Tags from './views/Tags';
+import Statistics from './views/Statistics';
+import Money from './views/Money';
+import NoMatch from './views/NoMatch';
 
-const Wrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-const Main = styled.div`
-  flex-grow: 1;
-  overflow: auto;
-`
 function App() {
     return (
         <Router>
-            <Wrapper>
-                <Main>
-                    <Switch>
+            <Switch>
                         <Route path="/tags">
                             <Tags />
                         </Route>
@@ -41,10 +28,6 @@ function App() {
                             <NoMatch/>
                         </Route>
                     </Switch>
-                </Main>
-
-                <Nav/>
-            </Wrapper>
         </Router>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 require('../icons/money.svg'); //这个跟vue中一样,不能直接用import导入
 require("../icons/Statistics.svg")
 require("../icons/tag.svg")
@@ -10,16 +10,19 @@ try {importAll(require.context("../icons",true,/\.svg$/));} catch (error){consol
 
 type Props = {
     name:string,
-    value:string
+    value:string,
+    url:string
 }
 
 export default function Icon(props:Props){
             return (
                 <li>
-                    <svg fill={'red'} className={'icon'}>
-                        <use xlinkHref={`#${props.name}`}/>
-                    </svg>
-                    <Link to="/tags">{props.value}</Link>
+                    <NavLink to={props.url} activeClassName={"selected"}>
+                        <svg className={'icon'}>
+                            <use xlinkHref={`#${props.name}`}/>
+                        </svg>
+                        {props.value}
+                    </NavLink>
                 </li>
             )
 }
