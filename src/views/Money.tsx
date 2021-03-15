@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import TagsSection from '../components/TagsSection';
-import NoteSection from '../components/NoteSection';
+import TagsSection from '../components/TagsSection/TagsSection';
+import NoteSection from '../components/NoteSection/NoteSection';
 import CategorySection from "../components/CategorySection/index"
 import NumberPadSection from "../components/NumberPadSection/index"
 
