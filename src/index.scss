@@ -33,3 +33,8 @@ button{
   width: 1em;
   display: inline-block;
 }
+.clearfix::after{
+  display: block;
+  content: "";
+  clear: both;
+}
