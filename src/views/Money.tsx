@@ -2,8 +2,8 @@ import React from 'react';
 import Layout from '../components/Layout';
 import TagsSection from '../components/TagsSection/TagsSection';
 import NoteSection from '../components/NoteSection/NoteSection';
-import CategorySection from "../components/CategorySection/index"
-import NumberPadSection from "../components/NumberPadSection/index"
+import CategorySection from "../components/CategorySection/"
+import NumberPadSection from "../components/NumberPadSection"
 
 export default function Money(){
     return (
