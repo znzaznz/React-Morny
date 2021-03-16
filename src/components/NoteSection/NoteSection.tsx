@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import styled from "styled-components";
 
 const NotesSection = styled.section`
@@ -21,8 +21,13 @@ const NotesSection = styled.section`
     }
 `
 
-export default function NoteSection() {
-    const [note,setNote] = useState('')
+type Props = {
+    value:string,
+    onChange:Function
+}
+export default function NoteSection(props:Props) {
+    const note = props.value;
+    const setNote = props.onChange;
     const refInput = useRef<HTMLInputElement>(null)
     const x = ()=>{
         if (refInput.current !== null){

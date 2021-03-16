@@ -25,17 +25,20 @@ const CategorySection = styled.section`
     }
 `
 
-export default function Index() {
+type Props = {
+    value:string,
+    onChange:Function
+}
+export default function Index(props:Props) {
     const  categoryMap = {"-":'支出','+':"收入"}
     type Y = keyof typeof categoryMap
     const [categoryList] = useState<Y[]>(["-",'+'])
-    const [category,setCategory] = useState('-')
     return (
         <>
             <CategorySection>
                 <ul>
                     {categoryList.map(c=>{
-                       return <li className={category === c ? "selected" : ""} onClick={()=>setCategory(c)} key={c}>
+                       return <li className={props.value === c ? "selected" : ""} onClick={()=>props.onChange(c)} key={c}>
                            {categoryMap[c]}
                        </li>
                     })}

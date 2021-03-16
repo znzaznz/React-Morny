@@ -1,8 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import NumberPadSection from './NumberPadSection';
 import {generateOutput} from './generateOutput';
 
-export default function Index() {
+type Props = {
+    onChange:Function,
+    onOK:Function
+}
+
+export default function Index(props:Props) {
     const [output, setOutput] = useState('0');
     const onClickNum = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
@@ -10,13 +15,12 @@ export default function Index() {
             return;
         }
         if (text) {
-            if (output.length >= 16){
-                alert("数字太大了")
-            }else if (output.indexOf(".") !== -1 && output.length - output.indexOf(".") > 2 ){
-                alert("数字输入错误")
-            }else {
-                setOutput(generateOutput(text,output) as string)
+            if (text === "OK"){
+                props.onOK();
             }
+            const num = generateOutput(text,output) as string
+            setOutput(num)
+            props.onChange(Number(num))
         }
     };
     return (

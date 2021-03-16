@@ -33,9 +33,15 @@ const TagSection = styled.section`
   }
 `
 
-const TagsSection:React.FC = ()=>{
-    const [tags,setTags] = useState<string[]>(['衣','食',"住",'行'])//这里是一个字符串数组，写出他的类型
-    const [selectedTags,setSelectedTags] = useState<string[]>([])
+
+type Props = {
+    selected:string[],
+    onChange:Function
+}
+const TagsSection:React.FC<Props> = (props)=>{
+    const [tags,setTags] = useState<string[]>(["衣","食","住","行"])
+    const selectedTags = props.selected;
+    const setSelectedTags = props.onChange;
     const onAddTag = ()=>{
         const tagName = window.prompt("新标签的名称为")
         if (tagName !== null){
