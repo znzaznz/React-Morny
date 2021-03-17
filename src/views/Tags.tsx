@@ -43,8 +43,8 @@ export default function Tags(){
             <TagList>
                 {tags.map((item)=>{
                     return <li key={item.id} >
-                        <Link to={`/tags/${item.name}`}>
-                            <span className={'oneLine'}>{item.name}</span>
+                        <Link to={`/tags/${item.id}`}>
+                            <span className={'oneLine'}>{`${item.id}.${item.name}`}</span>
                             <Icon name={'right'}/>
                         </Link>
                     </li>
