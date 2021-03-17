@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
+import {NavLink} from 'react-router-dom';
 
 
 const NavWrapper = styled.nav`
@@ -36,9 +37,24 @@ export default function Nav() {
     return (
         <NavWrapper>
             <ul>
-                <Icon name={"tag"} value={"标签"} url={"/tags"}/>
-                <Icon name={"money"} value={"记账"} url={"/money"}/>
-                <Icon name={"Statistics"} value={"统计"} url={"/statistics"}/>
+                <li>
+                    <NavLink to={"/tags"} activeClassName={'selected'}>
+                        <Icon name={"tag"}/>
+                        {"标签"}
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/money"} activeClassName={'selected'}>
+                        <Icon name={"money"}/>
+                        {"记账"}
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/statistics"} activeClassName={'selected'}>
+                        <Icon name={"Statistics"}/>
+                        {"统计"}
+                    </NavLink>
+                </li>
             </ul>
         </NavWrapper>
     );
