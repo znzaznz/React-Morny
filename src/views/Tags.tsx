@@ -42,9 +42,9 @@ export default function Tags(){
         <Layout>
             <TagList>
                 {tags.map((item)=>{
-                    return <li key={item} >
-                        <Link to={`/tags/${item}`}>
-                            <span className={'oneLine'}>{item}</span>
+                    return <li key={item.id} >
+                        <Link to={`/tags/${item.name}`}>
+                            <span className={'oneLine'}>{item.name}</span>
                             <Icon name={'right'}/>
                         </Link>
                     </li>
