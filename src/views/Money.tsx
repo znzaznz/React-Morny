@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Layout from '../components/Layout';
 import TagsSection from '../components/TagsSection/TagsSection';
-import NoteSection from '../components/NoteSection/NoteSection';
+import NoteSection from '../components/NoteSection/NoteSection.jsx';
 import CategorySection from "../components/CategorySection/"
 import NumberPadSection from "../components/NumberPadSection"
 

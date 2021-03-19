@@ -43,8 +43,6 @@ type Props = {
 
 const TagsSection:React.FC<Props> = (props)=>{
     const {tags,setTags} = useTags();
-    const selectedTags = props.selected;
-    const setSelectedTags = props.onChange;
     //增加tag标签
     const onAddTag = ()=>{
         const tagName = window.prompt("新标签的名称为")
@@ -54,13 +52,13 @@ const TagsSection:React.FC<Props> = (props)=>{
     }
     //标签标选功能
     const onToggleTag = (item:number)=>{
-        const index = selectedTags.indexOf(item)
+        const index = props.selected.indexOf(item)
         if (index >= 0){
-            setSelectedTags(selectedTags.filter((tag)=>{
+            props.onChange(props.selected.filter((tag)=>{
                 return tag !== item
             })) //如果选项在selected数组中，则将这个选项踢出
         }else {
-            setSelectedTags([...selectedTags,item])
+            props.onChange([...props.selected,item])
         }
     }
 
@@ -69,7 +67,7 @@ const TagsSection:React.FC<Props> = (props)=>{
             <ol>
                 {tags.map(item=>{
                     return <li key={item.id} onClick={()=>{onToggleTag(item.id)}}
-                        className={selectedTags.indexOf(item.id) >= 0 ? "selected" : ""}
+                        className={props.selected.indexOf(item.id) >= 0 ? "selected" : ""}
                     >{item.name}</li>
                 })}
             </ol>
