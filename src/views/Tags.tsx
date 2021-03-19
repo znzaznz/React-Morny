@@ -24,21 +24,21 @@ const TagList = styled.ol`
 `
 
 export default function Tags(){
-    const {tags} = useTags();
+    const {tags,addTag} = useTags();
     return (
         <Layout>
             <TagList>
                 {tags.map((item)=>{
                     return <li key={item.id} >
                         <Link to={`/tags/${item.id}`}>
-                            <span className={'oneLine'}>{`${item.id}.${item.name}`}</span>
+                            <span className={'oneLine'}>{`${item.name}`}</span>
                             <Icon name={'right'}/>
                         </Link>
                     </li>
                 })}
             </TagList>
             <Center>
-                <Button>新增标签</Button>
+                <Button onClick={addTag}>新增标签</Button>
             </Center>
         </Layout>
     )

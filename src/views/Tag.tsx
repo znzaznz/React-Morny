@@ -30,7 +30,7 @@ const InputWrapper = styled.div`
 const Tag:React.FC = ()=>{
     const {findTag,update,deleteTag} = useTags();
     let {id} = useParams<Params>()
-    const tag = findTag(parseInt(id))
+    const tag = findTag(id)
 
     const history = useHistory()
     const onClickBack = ()=>{

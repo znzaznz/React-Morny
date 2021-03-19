@@ -9,7 +9,7 @@ type Category = "+" | "-"
 
 export default function Money(){
     const [obj,setObj] = useState({
-        tags:[] as number[],
+        tags:[] as string[],
         note:"",
         category:"-" as Category,
         amount:0

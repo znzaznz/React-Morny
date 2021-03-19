@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import {useTags} from '../../useTags';
-import {createId} from '../../lib/createId';
 
 const TagSection = styled.section`
   display: flex;
@@ -37,21 +36,16 @@ const TagSection = styled.section`
 
 
 type Props = {
-    selected:number[],
+    selected:string[],
     onChange:Function
 }
 
 const TagsSection:React.FC<Props> = (props)=>{
-    const {tags,setTags} = useTags();
+    const {tags,setTags,addTag} = useTags();
     //增加tag标签
-    const onAddTag = ()=>{
-        const tagName = window.prompt("新标签的名称为")
-        if (tagName !== null){
-            setTags([...tags,{id:createId(),name:tagName}])
-        }
-    }
+
     //标签标选功能
-    const onToggleTag = (item:number)=>{
+    const onToggleTag = (item:string)=>{
         const index = props.selected.indexOf(item)
         if (index >= 0){
             props.onChange(props.selected.filter((tag)=>{
@@ -71,7 +65,7 @@ const TagsSection:React.FC<Props> = (props)=>{
                     >{item.name}</li>
                 })}
             </ol>
-            <button onClick={onAddTag}>新增标签</button>
+            <button onClick={addTag}>新增标签</button>
         </TagSection>
     )
 }
