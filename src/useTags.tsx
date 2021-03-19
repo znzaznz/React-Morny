@@ -22,15 +22,15 @@ const useTags = ()=>{
         }
         return result
     }
-    const update = (id:number,obj:{name:string})=>{
-       const index = findTagIndex(id)
-        //深拷贝tags得到tagsClone
-        const tagsClone = JSON.parse(JSON.stringify(tags))
-        //把tagsClone的第index删掉，换成{id:id，name:obj.name}
-        tagsClone.splice(index,1,{id:id,name:obj.name})
-        setTags(tagsClone)
+    const update = (id:number, {name}:{name:string})=>{
+       setTags(tags.map(tag=>{
+           return (id === id ? {id,name} : tag)
+       }))
     } // obj={name:2}
-    return {tags, setTags, findTag, update,findTagIndex}
+    const deleteTag = (id:number)=>{
+        setTags(tags.filter(tag => tag.id!==id))
+    }
+    return {tags, setTags, findTag, update,findTagIndex,deleteTag}
 }
 
 export {useTags}

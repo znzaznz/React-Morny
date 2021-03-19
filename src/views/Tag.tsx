@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTags} from '../useTags';
-import {useParams} from "react-router-dom"
+import {useParams,useHistory} from "react-router-dom"
 import Layout from '../components/Layout';
 import Icon from '../components/Icon';
 import {Button} from '../components/Button';
@@ -28,28 +28,36 @@ const InputWrapper = styled.div`
 
 
 const Tag:React.FC = ()=>{
-    const {findTag,update} = useTags();
+    const {findTag,update,deleteTag} = useTags();
     let {id} = useParams<Params>()
-
     const tag = findTag(parseInt(id))
+
+    const history = useHistory()
+    const onClickBack = ()=>{
+        history.goBack()
+    }
     return (
         <Layout>
             <Topbar>
-                <Icon name={"left"}/>
+                <div onClick={()=>{onClickBack()}}>
+                    <Icon name={"left"}/>
+                </div>
                 <span>编辑标签</span>
                 <Icon/>
             </Topbar>
-            <div>
-                <InputWrapper>
-                    <Input labelName={"标签名"} type={"text"} placeholder={"标签名"} value={tag.name}
-                    onChange={(e:any)=>{
-                        update(tag.id,{name:e.target.value})
-                    }}/>
-                </InputWrapper>
-            </div>
-            <Center>
-                <Button>删除标签</Button>
-            </Center>
+            {tag ? <div>
+                <div>
+                    <InputWrapper>
+                        <Input labelName={"标签名"} type={"text"} placeholder={"标签名"} value={tag.name}
+                               onChange={(e:any)=>{
+                                   update(tag.id,{name:e.target.value})
+                               }}/>
+                    </InputWrapper>
+                </div>
+                <Center>
+                    <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
+                </Center>
+            </div> : <div>tag不存在</div>}
         </Layout>
     )
 }
