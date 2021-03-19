@@ -41,7 +41,7 @@ const Tag:React.FC = ()=>{
             </Topbar>
             <div>
                 <InputWrapper>
-                    <Input labelName={"标签名"} type={"text"} placeholder={"标签名"}/>
+                    <Input labelName={"标签名"} type={"text"} placeholder={"标签名"} value={tag.name}/>
                 </InputWrapper>
             </div>
             <Center>
