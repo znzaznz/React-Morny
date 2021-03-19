@@ -11,19 +11,18 @@ const Label = styled.label`
       >input{
         display: block;
         width: 100%;    
-        height: 72px;    
+        height: 44px;    
         background: none;
         border: 0;
       }
    
 `
-type Props = React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input:React.FC  = (props:Props)=>{
-    const {...rest} = props
+const Input  = (props)=>{
+    const {labelName,...rest} = props
     return (
         <Label>
-            <span>备注</span>
+            <span>{labelName}</span>
             <input {...rest}/>
         </Label>
     )

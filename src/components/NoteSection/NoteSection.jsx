@@ -1,9 +1,9 @@
-import React, {ChangeEventHandler, useRef} from 'react';
+import React from 'react';
 import styled from "styled-components";
-import {Input} from '../Input';
+import {Input} from '../Input.jsx';
 
 const NotesSection = styled.section`
-    padding: 0 16px;
+    padding: 14px 16px;
     font-size: 14px;
 `
 export default function NoteSection(props) {
@@ -15,7 +15,9 @@ export default function NoteSection(props) {
     }
     return (
         <NotesSection>
-            <Input type="text" placeholder={"请在这里添加新的备注"}
+            <Input labelName="备注"
+                    type="text"
+                   placeholder={"请在这里添加新的备注"}
                    value={note}
                    onChange={x} />
         </NotesSection>
