@@ -16,6 +16,7 @@ export default function Index(props:Props) {
         }
         if (text) {
             if (text === "OK"){
+                setOutput("0")
                 props.onOK();
             }
             const num = generateOutput(text,output) as string

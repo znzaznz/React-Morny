@@ -1,6 +1,6 @@
 import {useEffect,  useState} from 'react';
 import { v4 as uuid } from 'uuid';
-import {useUpdate} from './lib/useUpdate';
+import {useUpdate} from './useUpdate';
 
 // const defaultTags = [
 //     {id:uuid(),name:"衣"},

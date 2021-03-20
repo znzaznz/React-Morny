@@ -7,7 +7,6 @@ const NotesSection = styled.section`
     font-size: 14px;
 `
 export default function NoteSection(props) {
-    const note = props.value;
     const x = (e)=>{
         if (e.target !== null){
             props.onChange(e.target.value)
@@ -18,7 +17,7 @@ export default function NoteSection(props) {
             <Input labelName="备注"
                     type="text"
                    placeholder={"请在这里添加新的备注"}
-                   value={note}
+                   value={props.value}
                    onChange={x} />
         </NotesSection>
     )

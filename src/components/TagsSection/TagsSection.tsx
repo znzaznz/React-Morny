@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {useTags} from '../../useTags';
+import {useTags} from '../../lib/useTags';
 
 const TagSection = styled.section`
   display: flex;
