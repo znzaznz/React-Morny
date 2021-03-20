@@ -27,18 +27,23 @@ export default function Money(){
     const {addRecord} =  useRecords()
     const submit = ()=>{
         if (record.tags.length ===  0){
+            console.log(1);
             alert("请至少选中一个标签")
-        }else if(record.amount <= 0){
-            alert("金额输入错误，请至少多于0块钱")
         }else{
-            addRecord(record)
-            setRecord({
-                tags:[] as string[],
-                note:"" as string,
-                category:"-" as string,
-                amount:0 as number,
-                createdAt:"未知"
-            })
+            if(record.amount > 0){
+                console.log(2);
+                addRecord(record)
+                setRecord({
+                    tags:[] as string[],
+                    note:"" as string,
+                    category:"-" as string,
+                    amount:0 as number,
+                    createdAt:"未知"
+                })
+            }else{
+                alert("金额输入错误，请至少多于0块钱")
+                console.log(3);
+            }
         }
     }
     return (
@@ -46,7 +51,7 @@ export default function Money(){
             <TagsSection selected={record.tags} onChange={(tags:any)=>onChange({tags})}/>
             <NoteSection value={record.note} onChange={(note:string)=>{onChange({note})}}/>
             <CategorySection value={record.category} onChange={(category:string)=>{onChange({category})}}/>
-            <NumberPadSection onChange={(amount:number)=>{onChange({amount})}}  onOK={submit} />
+            <NumberPadSection value={record.amount} onChange={(amount:number)=>{onChange({amount})}}  onOK={submit} />
         </Layout>
     )
 }

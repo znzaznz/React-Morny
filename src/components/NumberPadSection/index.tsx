@@ -3,12 +3,13 @@ import NumberPadSection from './NumberPadSection';
 import {generateOutput} from './generateOutput';
 
 type Props = {
+    value:number
     onChange:Function,
     onOK:Function
 }
 
 export default function Index(props:Props) {
-    const [output, setOutput] = useState('0');
+    const [output, setOutput] = useState(props.value.toString());
     const onClickNum = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
         if (text === null) {
@@ -16,8 +17,8 @@ export default function Index(props:Props) {
         }
         if (text) {
             if (text === "OK"){
-                setOutput("0")
                 props.onOK();
+                setOutput(props.value.toString())
             }else {
                 const num = generateOutput(text,output) as string
                 setOutput(num)
