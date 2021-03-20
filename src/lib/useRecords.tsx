@@ -9,7 +9,8 @@ const useRecords = ()=>{
     },[])
 
     const addRecord = (record:any)=>{
-        const newRecord = {...record,createAt:(new Date()).toISOString()}
+        const newRecord = {...record,createdAt:(new Date()).toISOString()}
+        console.log(newRecord);
         setRecords([...records,newRecord])
     }
     useUpdate(()=>{

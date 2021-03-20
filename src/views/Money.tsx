@@ -5,6 +5,11 @@ import NoteSection from '../components/NoteSection/NoteSection.jsx';
 import CategorySection from "../components/CategorySection/"
 import NumberPadSection from "../components/NumberPadSection"
 import {useRecords} from '../lib/useRecords';
+import styled from 'styled-components';
+
+const CategoryWapper = styled.div`
+      background-color: #c4c4c4;
+`
 
 export default function Money(){
     //设置初始值
@@ -50,7 +55,9 @@ export default function Money(){
         <Layout>
             <TagsSection selected={record.tags} onChange={(tags:any)=>onChange({tags})}/>
             <NoteSection value={record.note} onChange={(note:string)=>{onChange({note})}}/>
-            <CategorySection value={record.category} onChange={(category:string)=>{onChange({category})}}/>
+            <CategoryWapper>
+                <CategorySection value={record.category} onChange={(category:string)=>{onChange({category})}}/>
+            </CategoryWapper>
             <NumberPadSection value={record.amount} onChange={(amount:number)=>{onChange({amount})}}  onOK={submit} />
         </Layout>
     )

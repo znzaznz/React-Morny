@@ -42,7 +42,11 @@ const useTags = ()=>{
             setTags([...tags,{id:uuid(),name:tagName}])
         }
     }
-    return {tags, setTags, findTag, update,findTagIndex,deleteTag,addTag}
+    const getTag = (id:string)=>{
+       const tag = tags.filter(t=>t.id===id)[0]
+        return tag ? tag.name : ''
+    }
+    return {tags, setTags, findTag, update,findTagIndex,deleteTag,addTag,getTag}
 }
 
 export {useTags}
