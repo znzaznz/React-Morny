@@ -41,7 +41,7 @@ type Props = {
 }
 
 const TagsSection:React.FC<Props> = (props)=>{
-    const {tags,setTags,addTag} = useTags();
+    const {tags,addTag} = useTags();
     //增加tag标签
 
     //标签标选功能
