@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react';
 
-const useUpdate = (fn:Function,deps:any[])=>{
+const useUpdate = (fn:Function,dependency:any[])=>{
     //将第一次update的值排除出去
     const count = useRef(0)
     useEffect(()=>{
@@ -11,7 +11,7 @@ const useUpdate = (fn:Function,deps:any[])=>{
         if (count.current > 1){
             fn()
         }
-    },deps)
+    },[fn,dependency])
 }
 
 export {useUpdate}

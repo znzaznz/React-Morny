@@ -6,7 +6,7 @@ import {
     Redirect
 } from 'react-router-dom';
 import Tags from './views/Tags';
-import Statistics from './views/Statistics';
+import Statistics from './views/Statistics.jsx';
 import Money from './views/Money';
 import NoMatch from './views/NoMatch';
 import styled from 'styled-components';

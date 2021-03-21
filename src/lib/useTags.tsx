@@ -15,7 +15,7 @@ const useTags = ()=>{
     useEffect(()=>{
         setTags(JSON.parse(window.localStorage.getItem("tags") || '[]'))
     },[])
-    useUpdate(()=>{window.localStorage.setItem("tags",JSON.stringify(tags))},[tags])
+    useUpdate(()=>{window.localStorage.setItem("tags",JSON.stringify(tags))},tags)
 
     const findTag = (id:string)=>{return  tags.filter(tag=>tag.id === id)[0]}
     const findTagIndex = (id:string)=>{
