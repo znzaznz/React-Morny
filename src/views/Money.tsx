@@ -32,11 +32,9 @@ export default function Money(){
     const {addRecord} =  useRecords()
     const submit = ()=>{
         if (record.tags.length ===  0){
-            console.log(1);
             alert("请至少选中一个标签")
         }else{
             if(record.amount > 0){
-                console.log(2);
                 addRecord(record)
                 setRecord({
                     tags:[] as string[],
@@ -47,7 +45,6 @@ export default function Money(){
                 })
             }else{
                 alert("金额输入错误，请至少多于0块钱")
-                console.log(3);
             }
         }
     }

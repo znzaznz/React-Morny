@@ -1,6 +1,7 @@
 {
   "name": "react-morney",
   "version": "0.1.0",
+  "homepage": "https://xiaoznz.com/monery-website",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
